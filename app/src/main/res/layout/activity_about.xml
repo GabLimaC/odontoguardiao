@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lyt_header_sobre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/ic_arrow_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_header_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Sobre o Aplicativo"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scr_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lyt_header_sobre"
+        >
+
+        <TextView
+            android:id="@+id/tv_disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Política de Privacidade e Uso de Dados\n\n\n1. Coleta de Dados\nColetamos apenas as informações necessárias para criar e gerenciar sua conta, como nome, e-mail e senha. Não coletamos dados adicionais além do que você fornece voluntariamente.\n\n2. Uso de Informações\nComo não coletamos dados, não há uso ou compartilhamento de informações pessoais.\n\n3. Cookies e Tecnologias Similares\nEste aplicativo não utiliza cookies ou tecnologias similares para rastrear sua atividade.\n\n4. Segurança\nEmbora não coletemos dados, implementamos medidas de segurança para proteger o aplicativo contra acesso não autorizado ou alterações.\n\n5. Alterações na Política de Privacidade\nReservamo-nos o direito de modificar esta política a qualquer momento. Alterações significativas serão notificadas através do aplicativo.\n\n6. Consentimento\nAo usar este aplicativo, você concorda com nossa política de privacidade.\n\n7. Contato\nPara questões relacionadas a esta política, entre em contato conosco através do e-mail: contato@odontoguardiao.com.br\n\n8. Legislação Aplicável\nEsta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD) do Brasil.\n\nÚltima atualização: 25/09/2024\n\nEste aplicativo é desenvolvido e mantido no Brasil, seguindo todas as leis e regulamentações locais aplicáveis."
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
