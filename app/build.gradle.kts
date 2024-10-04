@@ -53,10 +53,12 @@ android {
 }
 
 dependencies {
-    testImplementation("junit:junit:4.13.2")
+    implementation("org.mindrot:jbcrypt:0.4")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("org.osmdroid:osmdroid-android:6.1.10")
+    implementation("com.itextpdf:itext7-core:7.1.16")
     implementation("com.squareup.okhttp3:okhttp:4.10.0") // Use the latest version
     implementation("com.squareup.okio:okio:3.3.0")
-    // If you plan to use JSON serialization, consider adding:
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     implementation("com.mailjet:mailjet-client:5.2.1")
     implementation("org.postgresql:postgresql:42.2.5.jre7")

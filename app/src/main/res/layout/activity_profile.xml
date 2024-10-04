@@ -51,8 +51,8 @@
         app:layout_constraintTop_toBottomOf="@+id/lyt_title_perfil"
         tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:id="@+id/tvMeusDados"
+        <Button
+            android:id="@+id/btn_meusDados"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
@@ -60,6 +60,8 @@
             android:text="Meus dados"
             android:textSize="18sp"
             android:gravity="center"
+            android:textAllCaps="false"
+            android:background="#00000000"
             app:drawableEndCompat="@drawable/ic_arrow"
             app:drawableStartCompat="@drawable/ic_prof_dark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,10 +76,10 @@
             android:background="#E0E0E0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMeusDados" />
+            app:layout_constraintTop_toBottomOf="@id/btn_meusDados" />
 
-        <TextView
-            android:id="@+id/tvAlterarSenha"
+        <Button
+            android:id="@+id/btn_alterarSenha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
@@ -85,6 +87,8 @@
             android:text="Alterar senha"
             android:textSize="18sp"
             android:gravity="center"
+            android:textAllCaps="false"
+            android:background="#00000000"
             app:drawableEndCompat="@drawable/ic_arrow"
             app:drawableStartCompat="@drawable/ic_lock_dark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,10 +103,10 @@
             android:background="#E0E0E0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAlterarSenha" />
+            app:layout_constraintTop_toBottomOf="@id/btn_alterarSenha" />
 
-        <TextView
-            android:id="@+id/tvAvalieNossoApp"
+        <Button
+            android:id="@+id/btn_avalie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
@@ -110,6 +114,8 @@
             android:text="Avalie nosso app!"
             android:textSize="18sp"
             android:gravity="center"
+            android:textAllCaps="false"
+            android:background="#00000000"
             app:drawableEndCompat="@drawable/ic_arrow"
             app:drawableStartCompat="@drawable/ic_star_dark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -124,10 +130,10 @@
             android:background="#E0E0E0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAvalieNossoApp" />
+            app:layout_constraintTop_toBottomOf="@id/btn_avalie" />
 
-        <TextView
-            android:id="@+id/tvSair"
+        <Button
+            android:id="@+id/btn_sair"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
@@ -135,11 +141,13 @@
             android:text="Sair"
             android:textSize="18sp"
             android:gravity="center"
+            android:textAllCaps="false"
+            android:background="#00000000"
             app:drawableEndCompat="@drawable/ic_arrow"
             app:drawableStartCompat="@drawable/ic_exit_dark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAvalieNossoApp" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_avalie" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

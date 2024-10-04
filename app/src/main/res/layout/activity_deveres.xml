@@ -45,7 +45,9 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:layout_marginTop="30dp"
+        android:background="@drawable/rounderstyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +56,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/lyt_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounderstyle">
+            android:layout_height="match_parent"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lyt_title_deveres"
@@ -69,7 +71,7 @@
 
 
                 <TextView
-                    android:id="@+id/tv_title"
+                    android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Veja o que o Cirurgião-Dentista deve fazer em caso de suspeita de maus-tratos infanto-juvenis de acordo com a legislação brasileira"
@@ -85,82 +87,30 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lyt_feed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:background="@drawable/feedstyle"
                 android:paddingLeft="16dp"
                 android:paddingTop="22dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/lyt_title_deveres"
-                tools:layout_editor_absoluteX="16dp">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lyt_title_deveres">
 
                 <TextView
                     android:id="@+id/section1Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ações imediatas"
+                    android:text="O Cirurgião-Dentista, assim como todos os profissionais da área da saúde, atuam na prevenção, identificação, notificação e atenção às situações de maus-tratos. Assim, é  importante a participação deste profissional na detecção dos casos, uma vez que a maioria das lesões são encontradas na região de cabeça e pescoço.
+No Brasil, de acordo com o Estatuto da Criança e do Adolescente (ECA), o Cirurgião-Dentista tem o dever legal, ético e moral de notificar casos suspeitos ou confirmados de maus-tratos infanto-juvenil.
+As portarias nº 1.968/2001 e nº 104/2011 do Ministério da Saúde, e o Código de Ética Odontológica, instituem como deveres do profissional zelar pela saúde e pela dignidade do paciente, além de promover a saúde coletiva no desempenho de suas funções, cargos e cidadania."
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/section1Content"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. vel illum qui dolorem eum fugiat quo voluptas nulla pariatu"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/section1Title" />
 
-                <TextView
-                    android:id="@+id/section2Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="Possiveis consequencias legais"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section1Content" />
-
-                <TextView
-                    android:id="@+id/section2Content"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Sed ut perspiciatis unde omnis Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section2Title" />
-
-                <TextView
-                    android:id="@+id/section3Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="quais artigos da legislação regem sobre essa questão?"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section2Content" />
-
-                <TextView
-                    android:id="@+id/section3Content"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. vel illum qui dolorem eum fugiat quo"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section3Title" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

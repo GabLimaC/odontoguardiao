@@ -110,7 +110,7 @@
                     android:id="@+id/section1Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hematomas"
+                    android:text="Avaliação Inicial + Exame Físico: Sinais em região de Cabeça e Pescoço"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -118,61 +118,300 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/section1Content"
+                    android:id="@+id/section1Content1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. vel illum qui dolorem eum fugiat quo voluptas nulla pariatu"
+                    android:text="- Lesões na região da face e boca: Hematomas, cortes ou lacerações nos lábios, gengivas, língua e mucosa bucal podem ser indicativos de abuso físico"
                     android:textSize="16sp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/section1Title" />
 
                 <TextView
+                    android:id="@+id/section1Content2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="- Fraturas ou luxações de dentes: Dentes quebrados, deslocados ou avulsionados sem explicação adequada devem ser investigados."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/section1Content1" />
+
+                <TextView
+                    android:id="@+id/section1Content3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="- Lesões antigas e novas: A presença de lesões cicatrizadas e recentes ao mesmo tempo pode ser um indicativo de violência crônica"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/section1Content2" />
+
+                <TextView
+                    android:id="@+id/section1Content4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="- Fraturas maxilofaciais: Fraturas no maxilar, zigoma ou outras partes da face que não condizem com acidentes comuns"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/section1Content3" />
+
+                <TextView
+                    android:id="@+id/section1Content5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="- Histórico médico: Pergunte sobre a causa das lesões. Se as explicações dos pais ou responsáveis forem vagas, conflitantes ou não se alinharem com o tipo de trauma observado, isso pode ser um sinal de alerta"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/section1Content4" />
+
+                <TextView
+                    android:id="@+id/section1Content6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="- Histórico de lesões repetidas: Lesões frequentes, especialmente na face,boca ou dentes, podem indicar maus-tratos, especialmente se ocorrerem de forma repetida."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/section1Content5" />
+
+
+                <TextView
                     android:id="@+id/section2Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Comportamento"
+                    android:text="Sinais Psicológicos e Comportamentais"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section1Content" />
+                    app:layout_constraintTop_toBottomOf="@id/section1Content6" />
 
                 <TextView
-                    android:id="@+id/section2Content"
+                    android:id="@+id/section2Content1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Sed ut perspiciatis unde omnis Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut"
+                    android:text="- Criança excessivamente ansiosa ou temerosa: Crianças que demonstram medo ao interagir com seus cuidadores, evitam contato visual ou se mostram ansiosas em ambientes médicos podem estar sofrendo abuso."
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/section2Title" />
 
                 <TextView
+                    android:id="@+id/section2Content2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Evasão ou hesitação em falar: Se a criança evita falar sobre suas lesões ou tem medo de responder, isso pode indicar coerção ou intimidação."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section2Content1" />
+
+                <TextView
+                    android:id="@+id/section2Content3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                   android:text="- Alterações no comportamento: Mudanças comportamentais, como retraimento social, agressividade, mudanças repentinas no humor ou apatia, são sinais comuns de abuso emocional ou físico."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section2Content2" />
+
+
+                <TextView
                     android:id="@+id/section3Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Responsáveis"
+                    android:text="Observação de Cuidados Inadequados"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section2Content" />
+                    app:layout_constraintTop_toBottomOf="@id/section2Content3" />
 
                 <TextView
-                    android:id="@+id/section3Content"
+                    android:id="@+id/section3Content1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. vel illum qui dolorem eum fugiat quo"
+                    android:text="- Negligência dentária: Cáries avançadas, gengivite severa, abscessos e má higiene bucal indicam negligência, especialmente se os pais não demonstrarem interesse ou iniciativa para tratar o problema."
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/section3Title" />
+
+                <TextView
+                    android:id="@+id/section3Content2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Falta de tratamento para lesões: Se a criança tem lesões dentárias ou faciais visíveis que não foram tratadas, ou se os pais atrasam o tratamento, isso pode ser um sinal de negligência, abuso emocional ou físico."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section3Content1" />
+
+                <TextView
+                    android:id="@+id/section4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Exame Bucal Detalhado"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section3Content2" />
+
+                <TextView
+                    android:id="@+id/section4Content1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Lesões internas na boca: Lacerações ou queimaduras no palato, lesões na língua e bochechas (especialmente em locais difíceis de ocorrerem acidentes), podem sugerir maus-tratos."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section4Title" />
+
+                <TextView
+                    android:id="@+id/section4Content2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Lesões características de força física: Marcas de mordida humanas que não condizem com o padrão de dentição da criança ou qualquer evidência de que a lesão foi infligida intencionalmente."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section4Content1" />
+
+                <TextView
+                    android:id="@+id/section4Content3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Lesões por objetos afiados: Cortes ou ferimentos no interior da boca que podem ter sido causados por objetos, como utensílios, e não por acidentes naturais."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section4Content2" />
+
+                <TextView
+                    android:id="@+id/section5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Sinais de Abuso Sexual"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section4Content3" />
+
+                <TextView
+                    android:id="@+id/section5Content1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Lesões no lábio superior e palato: Podem ser sinais de violência sexual."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section5Title" />
+
+                <TextView
+                    android:id="@+id/section5Content2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Alterações comportamentais: Comportamento sexual inapropriado para a idade ou extrema vergonha em relação ao corpo e ao contato físico são indicativos."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section5Content1" />
+
+                <TextView
+                    android:id="@+id/section6Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Sinais de Abuso Emocional"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section5Content2" />
+
+                <TextView
+                    android:id="@+id/section6Content1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Interação cuidador-criança: Observe o comportamento dos cuidadores. Pais que intimidam, ameaçam ou ridicularizam a criança, especialmente na frente do profissional de saúde, podem estar abusando emocionalmente."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section6Title" />
+
+                <TextView
+                    android:id="@+id/section6Content2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Problemas de fala ou desenvolvimento: Atrasos no desenvolvimento da fala ou outros marcos de desenvolvimento sem causa médica aparente podem ser um sinal de abuso emocional."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section6Content1" />
+
+                <TextView
+                    android:id="@+id/section7Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Comportamento dos Pais ou Responsáveis"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section6Content2" />
+
+                <TextView
+                    android:id="@+id/section7Content1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Desinteresse ou agressividade: Pais que mostram desinteresse no tratamento da criança ou são agressivos com profissionais de saúde ou com a própria criança durante consultas."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section7Title" />
+
+                <TextView
+                    android:id="@+id/section7Content2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="- Relutância em permitir exames: Pais que relutam em deixar que a criança seja examinada ou ficam extremamente nervosos durante a consulta."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/section7Content1" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

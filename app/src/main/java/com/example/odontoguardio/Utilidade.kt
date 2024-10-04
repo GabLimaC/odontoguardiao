@@ -1,7 +1,8 @@
 package com.example.odontoguardio
 import android.util.Patterns
+import org.mindrot.jbcrypt.BCrypt
 
-class Validator {
+class Utilidade {
     fun validateEmailAndPass(email: String, pass: String): Pair<Boolean, String> {
         // Validate name
         if (pass.isEmpty()){
@@ -21,7 +22,7 @@ class Validator {
         if (nome.isEmpty() || sobrenome.isEmpty() || email.isEmpty() || senha.isEmpty() || repitaSenha.isEmpty()) {
             return Pair(false, "Please fill in all fields.")
         }
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return Pair(false, "Invalid email format.")
         }
         if (senha.length < 6) {
@@ -32,6 +33,22 @@ class Validator {
         }
         // Add more password strength checks as needed
         return Pair(true, "")
+    }
+
+    fun validateNewData(email: String, nome: String, sobrenome: String): Pair<Boolean, String> {
+        if (nome.isEmpty() || sobrenome.isEmpty() || email.isEmpty()) {
+            return Pair(false, "Please fill in all fields.")
+        }
+        // Add more password strength checks as needed
+        return Pair(true, "")
+    }
+
+    fun hashPassword(password: String): String {
+        val salt = BCrypt.gensalt()
+        return BCrypt.hashpw(password, salt)
+    }
+    fun checkPassword(inputPassword: String, storedHash: String): Boolean {
+        return BCrypt.checkpw(inputPassword, storedHash)
     }
 
 

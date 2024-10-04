@@ -9,10 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,7 +23,7 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var etRepitaSenha: EditText
     private lateinit var btnCriarNovaConta: Button
     private lateinit var progressBar: ProgressBar
-    private lateinit var validator: Validator
+    private lateinit var utilidade: Utilidade
     private lateinit var dbManager: DatabaseManager
     private lateinit var btnBack: Button
 
@@ -44,7 +41,7 @@ class SignupActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progress_bar)
         btnBack = findViewById(R.id.btnBack)
 
-        validator = Validator()
+        utilidade = Utilidade()
         dbManager = DatabaseManager()
 
         btnCriarNovaConta.setOnClickListener {
@@ -64,15 +61,16 @@ class SignupActivity : AppCompatActivity() {
         val senha = etSenha.text.toString()
         val repitaSenha = etRepitaSenha.text.toString()
 
-        val (isValid, message) = validator.validateSignup(nome, sobrenome, email, senha, repitaSenha)
+        val (isValid, message) = utilidade.validateSignup(nome, sobrenome, email, senha, repitaSenha)
         if (isValid) {
             // Show ProgressBar and disable user interaction
             progressBar.visibility = View.VISIBLE
             disableUserInteraction()
+            val safepass = utilidade.hashPassword(senha)
 
             lifecycleScope.launch {
                 try {
-                    val userCreationSuccess = dbManager.createUser(nome, sobrenome, email, senha)
+                    val userCreationSuccess = dbManager.createUser(nome, sobrenome, email, safepass)
                     withContext(Dispatchers.Main) {
                         // Hide ProgressBar and re-enable user interaction
                         progressBar.visibility = View.GONE
@@ -82,7 +80,7 @@ class SignupActivity : AppCompatActivity() {
                             // User created successfully
                             Toast.makeText(applicationContext, "Account created successfully!", Toast.LENGTH_SHORT).show()
                             // Navigate to the next screen if needed
-                            val intent = Intent(applicationContext, MainActivity::class.java)
+                            val intent = Intent(applicationContext, LoginActivity::class.java)
                             startActivity(intent)
                             finish()
                         } else {

@@ -1,6 +1,7 @@
 package com.example.odontoguardio
 
 import DatabaseManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -16,12 +17,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     private val dbManager = DatabaseManager()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        val validator = Validator()
+        val utilidade = Utilidade()
         val btn_enter : Button = findViewById(R.id.btn_enter)
         val btn_new_passwd : Button = findViewById(R.id.btn_forgot_passwd)
         val btn_create_acc : Button = findViewById(R.id.btn_create_acc)
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             val email = emailet.text.toString()
             val pass = passwdet.text.toString()
 
-            val (isValid, message) = validator.validateEmailAndPass(email, pass)
+            val (isValid, message) = utilidade.validateEmailAndPass(email, pass)
             if (isValid) {
                 // Show ProgressBar and disable user interaction
                 progressBar.visibility = View.VISIBLE
@@ -49,8 +50,12 @@ class MainActivity : AppCompatActivity() {
                             enableUserInteraction()
 
                             if (loginSuccess) {
+
+                                saveLoginState(email)
+
                                 val intent = Intent(applicationContext, MenuActivity::class.java)
                                 startActivity(intent)
+                                finish()
                             } else {
                                 Toast.makeText(applicationContext, "Invalid email or password", Toast.LENGTH_SHORT).show()
                             }
@@ -84,6 +89,15 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+
+    private fun saveLoginState(email: String) {
+        val sharedPref = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putBoolean("isLoggedIn", true)
+            putString("userEmail", email)
+            apply()
+        }
     }
 
     private fun disableUserInteraction() {

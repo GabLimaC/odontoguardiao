@@ -1,8 +1,10 @@
 package com.example.odontoguardio
 
 import DatabaseManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
@@ -12,6 +14,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -28,9 +31,15 @@ class ConfirmationCodeActivity : AppCompatActivity() {
     private lateinit var etCode5: EditText
     private lateinit var etCode6: EditText
     private lateinit var btnProximo: Button
-    private lateinit var btnResend: ImageButton
+    private lateinit var btnBack: Button
     private lateinit var progressBar: ProgressBar
     private lateinit var dbManager: DatabaseManager
+
+    private lateinit var btnResend: Button
+    private lateinit var tvCountdown: TextView
+    private lateinit var countDownTimer: CountDownTimer
+    private val initialCountDown: Long = 60000 // 60 seconds in milliseconds
+    private val countDownInterval: Long = 1000 // 1 second
 
     // Assuming you pass the email via Intent from RecoverPasswordActivity
     private var userEmail: String? = null
@@ -48,8 +57,11 @@ class ConfirmationCodeActivity : AppCompatActivity() {
         etCode6 = findViewById(R.id.etCode6)
         btnProximo = findViewById(R.id.btnProximo)
         btnResend = findViewById(R.id.btnResend)
+        btnBack = findViewById(R.id.btnBack)
+        tvCountdown = findViewById(R.id.tvCountdown)
         progressBar = findViewById(R.id.progress_bar)
         dbManager = DatabaseManager()
+
 
         // Retrieve the email from Intent
         userEmail = intent.getStringExtra("email")
@@ -62,11 +74,21 @@ class ConfirmationCodeActivity : AppCompatActivity() {
             confirmCode()
         }
 
+        btnBack.setOnClickListener{
+            finish()
+        }
+
+
         // Setup OnClickListener for resend button
         btnResend.setOnClickListener {
             resendCode()
+            startCountDownTimer()
         }
+
+        btnResend.isEnabled = true
     }
+
+    //functions
 
     private fun setupTextWatchers() {
         etCode1.addTextChangedListener(GenericTextWatcher(etCode1, etCode2))
@@ -169,13 +191,26 @@ class ConfirmationCodeActivity : AppCompatActivity() {
                     enableUserInteraction()
 
                     if (isValid) {
-                        Toast.makeText(this@ConfirmationCodeActivity, "Code confirmed!", Toast.LENGTH_SHORT).show()
-                        //Navigate to NewpasswordActivity
-                        val intent = Intent(this@ConfirmationCodeActivity, NewpasswordActivity::class.java).apply {
-                            putExtra("email", userEmail)
+                        if(saveLoginState(userEmail)) {
+                            Toast.makeText(
+                                this@ConfirmationCodeActivity,
+                                "Code confirmed!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            //Navigate to NewpasswordActivity
+                            val intent = Intent(
+                                this@ConfirmationCodeActivity,
+                                NewPasswordActivity::class.java
+                            )
+                            startActivity(intent)
+                            finish()
+                        }else{
+                            Toast.makeText(
+                                this@ConfirmationCodeActivity,
+                                "Something went wrong! Please try again",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
-                        startActivity(intent)
-                        finish()
                     } else {
                         Toast.makeText(this@ConfirmationCodeActivity, "Invalid or expired code.", Toast.LENGTH_SHORT).show()
                     }
@@ -239,6 +274,20 @@ class ConfirmationCodeActivity : AppCompatActivity() {
         } ?: run {
             Toast.makeText(this, "Email not found.", Toast.LENGTH_SHORT).show()
         }
+        startCountDownTimer()
+    }
+
+    private fun saveLoginState(email: String?): Boolean{
+        if(email != null) {
+            val sharedPref = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+            with(sharedPref.edit()) {
+                putBoolean("isLoggedIn", true)
+                putString("userEmail", email)
+                apply()
+            }
+            return true
+        }
+        return false
     }
 
     private fun getCodeFromEditTexts(): String {
@@ -263,5 +312,28 @@ class ConfirmationCodeActivity : AppCompatActivity() {
 
     private fun enableUserInteraction() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+    }
+
+    private fun startCountDownTimer() {
+        btnResend.isEnabled = false
+        tvCountdown.visibility = View.VISIBLE
+        countDownTimer = object : CountDownTimer(initialCountDown, countDownInterval) {
+            override fun onTick(millisUntilFinished: Long) {
+                val secondsRemaining = millisUntilFinished / 1000
+                tvCountdown.text = "($secondsRemaining)"
+            }
+
+            override fun onFinish() {
+                btnResend.isEnabled = true
+                tvCountdown.visibility = View.GONE
+            }
+        }.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (::countDownTimer.isInitialized) {
+            countDownTimer.cancel()
+        }
     }
 }

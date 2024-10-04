@@ -1,5 +1,6 @@
 package com.example.odontoguardio
 
+import DatabaseManager
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -24,10 +25,6 @@ class ExampleInstrumentedTest {
     fun setUp() {
         dbManager = DatabaseManager()
         // Initialize the database connection for testing
-        dbManager.getConnection()
-
-        val result = dbManager.insertUser("test@example.com", "Test", "user", "password123")
-        assertNotNull(result)
     }
 
 

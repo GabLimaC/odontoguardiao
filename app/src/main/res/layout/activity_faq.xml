@@ -69,7 +69,7 @@
 
 
                 <TextView
-                    android:id="@+id/tv_title"
+                    android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Ficou com dúvidas? Veja as respostas para as dúvidas mais frequêntes nessa seção!"
@@ -95,72 +95,188 @@
                 tools:layout_editor_absoluteX="16dp">
 
                 <TextView
-                    android:id="@+id/section1Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="É necessário ter certeza para realizar denûncias?"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/section1Content"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. vel illum qui dolorem eum fugiat quo voluptas nulla pariatu"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/section1Title" />
-
-                <TextView
-                    android:id="@+id/section2Title"
+                    android:id="@+id/question1Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Como agir em  situações de flagrante de violência?"
+                    android:text="Quais sinais um cirurgião-dentista pode identificar como possíveis indicadores de maus-tratos?"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section1Content" />
+                    app:layout_constraintTop_toBottomOf="@id/section7Content2" />
 
                 <TextView
-                    android:id="@+id/section2Content"
+                    android:id="@+id/answer1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Sed ut perspiciatis unde omnis Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut"
+                    android:text="O cirurgião-dentista pode observar sinais como:\n• Lesões faciais recorrentes ou inexplicadas;\n• Fraturas de dentes, ossos da mandíbula ou outros traumas bucais;\n• Queimaduras ou cortes nos lábios, gengivas ou língua;\n• Comportamento retraído, medo ou ansiedade excessiva da criança em interações sociais ou com os pais/responsáveis;\n• Falta de higiene bucal extrema ou negligência no cuidado odontológico."
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section2Title" />
+                    app:layout_constraintTop_toBottomOf="@id/question1Title" />
 
                 <TextView
-                    android:id="@+id/section3Title"
+                    android:id="@+id/question2Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="De que maneira posso realizar as denûncias?"
+                    android:text="O que devo fazer se suspeitar de maus-tratos em uma consulta odontológica?"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section2Content" />
+                    app:layout_constraintTop_toBottomOf="@id/answer1" />
 
                 <TextView
-                    android:id="@+id/section3Content"
+                    android:id="@+id/answer2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. vel illum qui dolorem eum fugiat quo"
+                    android:text="Se houver suspeita de maus-tratos, é fundamental documentar todas as observações, fotos (com consentimento dos responsáveis, se possível) e dados da consulta. Em seguida, faça a denúncia às autoridades competentes, como o Conselho Tutelar, e, em casos mais graves, acione a Polícia. O dentista tem a responsabilidade ética e legal de agir nesses casos."
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/section3Title" />
+                    app:layout_constraintTop_toBottomOf="@id/question2Title" />
+
+                <TextView
+                    android:id="@+id/question3Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Qual a legislação brasileira sobre a denúncia de maus-tratos infantis?"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/answer2" />
+
+                <TextView
+                    android:id="@+id/answer3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="O Estatuto da Criança e do Adolescente (ECA) estabelece, no artigo 245, que os profissionais da área da saúde, incluindo cirurgiões-dentistas, têm a obrigação de comunicar casos suspeitos ou confirmados de maus-tratos infantis às autoridades. A omissão pode resultar em multa e sanções éticas."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question3Title" />
+
+                <TextView
+                    android:id="@+id/question4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Como proteger a privacidade da criança ao realizar uma denúncia?"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/answer3" />
+
+                <TextView
+                    android:id="@+id/answer4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="As denúncias de maus-tratos infantis são sigilosas por lei. O nome do denunciante não será revelado aos envolvidos. Toda a documentação e os registros da consulta devem ser mantidos confidenciais, exceto para as autoridades competentes."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question4Title" />
+
+                <TextView
+                    android:id="@+id/question5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="E se eu estiver enganado sobre os maus-tratos? Posso ser penalizado?"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/answer4" />
+
+                <TextView
+                    android:id="@+id/answer5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Não. A lei incentiva que suspeitas de maus-tratos sejam denunciadas com base na boa-fé. Mesmo que a investigação conclua que não houve maus-tratos, o dentista não será penalizado por ter feito a denúncia, desde que a suspeita tenha sido fundamentada em sinais clínicos e comportamentais."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question5Title" />
+
+                <TextView
+                    android:id="@+id/question6Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Qual é o papel do cirurgião-dentista na prevenção de maus-tratos?"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/answer5" />
+
+                <TextView
+                    android:id="@+id/answer6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="O cirurgião-dentista tem um papel importante na prevenção de maus-tratos, já que frequentemente mantém contato direto com crianças em consultas regulares. Além de identificar sinais de violência, o dentista pode orientar pais e cuidadores sobre práticas de saúde bucal e o impacto da violência na saúde geral da criança."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question6Title" />
+
+                <TextView
+                    android:id="@+id/question7Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Como proceder se os pais ou responsáveis da criança ficarem agressivos ao ser abordado sobre os maus-tratos?"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/answer6" />
+
+                <TextView
+                    android:id="@+id/answer7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Em situações de risco, mantenha a calma e priorize a segurança da criança e sua própria.\nEvite confrontar os responsáveis diretamente e entre em contato com as autoridades competentes o mais rápido possível. Lembre-se que sua prioridade é proteger a criança."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question7Title" />
+
+                <TextView
+                    android:id="@+id/question8Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Há algum material de apoio que posso consultar para saber mais sobre como identificar maus-tratos infantis?"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/answer7" />
+
+                <TextView
+                    android:id="@+id/answer8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Sim, existem manuais e guias de orientação sobre maus-tratos infantis disponíveis em instituições como o Conselho Federal de Odontologia (CFO), o Conselho Tutelar e o Ministério da Saúde. Além disso, organizações como a Sociedade Brasileira de Pediatria oferecem materiais de apoio."
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question8Title" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

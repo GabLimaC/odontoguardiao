@@ -1,4 +1,7 @@
+import android.util.Base64
+import android.util.Log
 import com.example.odontoguardio.User
+import com.example.odontoguardio.Utilidade
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Credentials
@@ -6,6 +9,8 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+import java.io.File
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
@@ -59,7 +64,7 @@ class DatabaseManager {
         val connection = getConnection() ?: return@withContext null
         var user: User? = null
         try {
-            val sql = "SELECT nome, sobrenome, email, senha FROM usuarios WHERE email = ?"
+            val sql = "SELECT nome, sobrenome, email FROM usuarios WHERE email = ?"
             connection.prepareStatement(sql).use { stmt ->
                 stmt.setString(1, email)
                 val resultSet = stmt.executeQuery()
@@ -68,8 +73,8 @@ class DatabaseManager {
                         nome = resultSet.getString("nome"),
                         sobrenome = resultSet.getString("sobrenome"),
                         email = resultSet.getString("email"),
-                        senha = resultSet.getString("senha"),
                     )
+                    return@withContext user
                 }
             }
         } catch (e: SQLException) {
@@ -80,25 +85,56 @@ class DatabaseManager {
         user
     }
 
-    suspend fun updateUser(email: String, nome: String, sobrenome: String, senha: String): Boolean = withContext(Dispatchers.IO) {
-        val connection = getConnection() ?: return@withContext false
-        var success = false
+    suspend fun readUserName(email: String): String? = withContext(Dispatchers.IO) {
+        var connection: Connection? = null
         try {
-            val sql = "UPDATE usuarios SET nome = ?, sobrenome = ?, senha = ? WHERE email = ?"
+            connection = getConnection() ?: return@withContext null
+            val sql = "SELECT nome FROM usuarios WHERE email = ?"
             connection.prepareStatement(sql).use { stmt ->
-                stmt.setString(1, nome)
-                stmt.setString(2, sobrenome)
-                stmt.setString(3, senha)
-                stmt.setString(4, email)
-                success = stmt.executeUpdate() > 0
+                stmt.setString(1, email)
+                stmt.executeQuery().use { resultSet ->
+                    if (resultSet.next()) {
+                        return@withContext resultSet.getString("nome")
+                    }
+                }
             }
         } catch (e: SQLException) {
             e.printStackTrace()
         } finally {
-            connection.close()
+            connection?.close()
         }
-        success
+        null
     }
+
+    suspend fun updateUser(email: String, nome: String, sobrenome: String): Pair<Boolean, String> = withContext(Dispatchers.IO) {
+        var connection: Connection? = null
+        try {
+            connection = getConnection() ?: return@withContext Pair(false, "Failed to establish database connection")
+            val sql = "UPDATE usuarios SET nome = ?, sobrenome = ? WHERE email = ?"
+            connection.prepareStatement(sql).use { stmt ->
+                stmt.setString(1, nome)
+                stmt.setString(2, sobrenome)
+                stmt.setString(3, email)
+                val rowsAffected = stmt.executeUpdate()
+                return@withContext if (rowsAffected > 0) {
+                    Pair(true, "Update successful")
+                } else {
+                    Pair(false, "No rows updated. User with email $email not found.")
+                }
+            }
+        } catch (e: SQLException) {
+            Log.e("UpdateUser", "SQLException during update", e)
+            return@withContext Pair(false, "Database error: ${e.message}")
+        } finally {
+            try {
+                connection?.close()
+            } catch (e: SQLException) {
+                Log.e("UpdateUser", "Error closing connection", e)
+            }
+        }
+    }
+
+
 
     suspend fun deleteUser(email: String): Boolean = withContext(Dispatchers.IO) {
         val connection = getConnection() ?: return@withContext false
@@ -126,7 +162,7 @@ class DatabaseManager {
                 val resultSet = stmt.executeQuery()
                 if (resultSet.next()) {
                     val storedPassword = resultSet.getString("senha")
-                    isValid = storedPassword == password
+                    isValid = Utilidade().checkPassword(password, storedPassword)
                 }
             }
         } catch (e: SQLException) {
@@ -243,6 +279,71 @@ class DatabaseManager {
                     println("Response Body: ${response.body?.string()}")
                     return@withContext false
                 }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return@withContext false
+        }
+    }
+
+    suspend fun sendEmailWithAttachment(pdfBytes: ByteArray, email: String): Boolean = withContext(Dispatchers.IO) {
+        try {
+            val apiKey = "2aff0c51877973ff2295d001bd75d0f8"
+            val apiSecret = "24794bd3429d3b1c70bb27caad095315"
+
+            // Base64 encode the API Key and Secret for Basic Authentication
+            val credentials = "$apiKey:$apiSecret"
+            val auth = "Basic " + Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
+
+            // Read and encode the PDF file
+            val pdfBase64 = Base64.encodeToString(pdfBytes, Base64.NO_WRAP)
+
+            // Create the JSON payload
+            val emailData = JSONObject().apply {
+                put("Messages", org.json.JSONArray().put(
+                    JSONObject().apply {
+                        put("From", JSONObject().apply {
+                            put("Email", "odontoguardiao@mail.com")
+                            put("Name", "Odontoguardião")
+                        })
+                        put("To", org.json.JSONArray().put(
+                            JSONObject().apply {
+                                put("Email", email) // Replace with recipient's email
+                                put("Name", "Recipient Name")
+                            }
+                        ))
+                        put("Subject", "Nova denúncia")
+                        put("TextPart", "Uma nova denúncia anônima foi realizada usando o aplicativo Odontoguardião, por favor verifique os anexos")
+                        put("HTMLPart", "<h3>Verifique os anexos desse email.</h3>")
+                        put("Attachments", org.json.JSONArray().put(
+                            JSONObject().apply {
+                                put("ContentType", "application/pdf")
+                                put("Filename", "document.pdf")
+                                put("Base64Content", pdfBase64)
+                            }
+                        ))
+                    }
+                ))
+            }
+
+            // Create the request body
+            val mediaType = "application/json".toMediaTypeOrNull()
+            val requestBody = emailData.toString().toRequestBody(mediaType)
+
+            // Build the request
+            val request = Request.Builder()
+                .url("https://api.mailjet.com/v3.1/send")
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", auth)
+                .post(requestBody)
+                .build()
+
+            // Create OkHttpClient instance
+            val client = OkHttpClient()
+
+            // Execute the request
+            client.newCall(request).execute().use { response ->
+                return@withContext response.isSuccessful
             }
         } catch (e: Exception) {
             e.printStackTrace()
